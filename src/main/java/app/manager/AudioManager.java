@@ -70,21 +70,21 @@ public class AudioManager {
     }
     
     public void volume(int n, float decibels){
-        FloatControl gainControl = 
-        (FloatControl) clips.get(n).getControl(FloatControl.Type.MASTER_GAIN);
-        gainControl.setValue(decibels);
+//        FloatControl gainControl =
+//        (FloatControl) clips.get(n).getControl(FloatControl.Type.MASTER_GAIN);
+//        gainControl.setValue(decibels);
     }
     
     public void play(int n) {
-        if(clips.get(n) == null) return;
+//        if(clips.get(n) == null) return;
 //        if (!sfx_enable) return;
-        stop(n);
-        clips.get(n).setFramePosition(0);
-        clips.get(n).start();
+//        stop(n);
+//        clips.get(n).setFramePosition(0);
+//        clips.get(n).start();
     }
     
     public void stop(int n) {
-        if(clips.get(n).isRunning()) clips.get(n).stop();
+//        if(clips.get(n).isRunning()) clips.get(n).stop();
     }
     
     public void close(int n) {
@@ -99,16 +99,17 @@ public class AudioManager {
     }
     
     public void loop(int n, int frame, int start, int end) {
-        Clip c = clips.get(n);
-        if(c == null) return;
+//        Clip c = clips.get(n);
+//        if(c == null) return;
 //        if (!music_enable) return;
-        if(c.isRunning()) c.stop();
-        c.setLoopPoints(start, end);
-        c.setFramePosition(frame);
-        c.loop(Clip.LOOP_CONTINUOUSLY);
+//        if(c.isRunning()) c.stop();
+//        c.setLoopPoints(start, end);
+//        c.setFramePosition(frame);
+//        c.loop(Clip.LOOP_CONTINUOUSLY);
     }
     
     public int getFrames(int n){
-        return clips.get(n).getFrameLength();
+//        return clips.get(n).getFrameLength();
+        return -1;
     }
 }
