@@ -1,0 +1,2 @@
+Moduladas las acciones del enemigo
+Implementado que el enemigo muera bien shidori
