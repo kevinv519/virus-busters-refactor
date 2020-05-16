@@ -1,14 +1,12 @@
 package app.main;
 
-import app.manager.GameStateManager;
 import app.manager.KeyManager;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
 
 /**
  * @author Kevin
@@ -29,9 +27,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     //Graphics
     private BufferedImage image;
     private Graphics2D g;
-    
-    //GameStateManager
-    private GameStateManager gsm;
+
     /************ FINAL DECLARACION DE VARIABLES ************/
     
     public GamePanel(){
@@ -97,16 +93,13 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         running = true;
         image = new BufferedImage(PANEL_WIDTH, PANEL_HEIGHT, BufferedImage.TYPE_INT_RGB);
         g = (Graphics2D) image.getGraphics();
-        gsm = new GameStateManager();
     }
     
     private void update(){
-        gsm.update();
         KeyManager.update();
     }
     
     private void render(){
-        gsm.draw(g);
     }
     
     private void draw(){
