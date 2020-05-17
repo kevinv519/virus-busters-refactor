@@ -92,7 +92,7 @@ public class SettingsManager {
     }
 
     private void verifyAndFixSettings() {
-        if (settings.size() != 4) {
+        if (settings.size() != SettingsOptions.values().length - 1) {
             logger.warn("We detected that the settings file had some problems and it will be replaced with the default settings");
             settings.clear();
             setUpDefaultSettings();

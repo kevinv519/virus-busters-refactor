@@ -1,4 +1,4 @@
-language=es
-player=spriteKV.png
-sfx=0
-music=0
+language=en
+player=sprite-player-carlos.png
+sfx_enabled=1
+music_enabled=1
