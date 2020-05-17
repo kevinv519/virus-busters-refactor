@@ -11,7 +11,7 @@ public class LanguageManager {
     private ResourceBundle bundle;
     
     private LanguageManager(){
-        bundle = ResourceBundle.getBundle("locale/strings_"+SettingsManager.getInstance().getLanguage());
+        bundle = ResourceBundle.getBundle("locale/strings");
     }
     
     public static LanguageManager getInstance(){
@@ -31,6 +31,6 @@ public class LanguageManager {
     }
     
     public void reloadLanguage(){
-        bundle = ResourceBundle.getBundle("locale/strings_" +SettingsManager.getInstance().getLanguage());
+        bundle = ResourceBundle.getBundle("locale/strings");
     }
 }
