@@ -4,19 +4,21 @@ import javafx.scene.image.Image;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Kevin
  */
 public class TextureManager {
-    private final static Logger logger = LogManager.getLogger(TextureManager.class);
-    private final static String PATH = "images/";
+    private static final Logger logger = LogManager.getLogger(TextureManager.class);
+    private static final String PATH = "images/";
 
-    private HashMap<String, Image> images;
+    private Map<String, Image> images;
 
-    public TextureManager() {
-        images = new HashMap<>();
+    private TextureManager() {
+        images = Collections.synchronizedMap(new HashMap<>());
         loadImage("logo.png", "logo");
         loadImage("state-menu.png", "state-menu");
         loadImage("state-pause.png", "state-pause");
@@ -44,6 +46,14 @@ public class TextureManager {
         loadImage("button.png", "button");
         loadImage("button-over.png", "button-over");
         loadImage("button-pressed.png", "button-pressed");
+    }
+
+    private static class TextureManagerHelper {
+        private static final TextureManager INSTANCE = new TextureManager();
+    }
+
+    public static TextureManager getInstance() {
+        return TextureManagerHelper.INSTANCE;
     }
 
     public Image getImage(String key) {

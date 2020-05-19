@@ -7,8 +7,6 @@ public class SettingsManagerTest {
 
     @Test
     public void countSettingsShouldReturnFourSettings() {
-        var settingsManager = new SettingsManager();
-
-        Assert.assertEquals(4, settingsManager.countAvailableSettings());
+        Assert.assertEquals(4, SettingsManager.getInstance().countAvailableSettings());
     }
 }

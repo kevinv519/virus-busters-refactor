@@ -27,9 +27,17 @@ public class SettingsManager {
 
     private Map<String, String> settings;
 
-    public SettingsManager() {
+    private SettingsManager() {
         settings = Collections.synchronizedMap(new LinkedHashMap<>());
         loadSettings();
+    }
+
+    private static class SettingsManagerHelper {
+        private static final SettingsManager INSTANCE = new SettingsManager();
+    }
+
+    public static SettingsManager getInstance() {
+        return SettingsManagerHelper.INSTANCE;
     }
 
     public void loadSettings() {

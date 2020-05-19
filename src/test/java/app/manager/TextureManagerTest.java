@@ -14,15 +14,15 @@ public class TextureManagerTest extends ApplicationTest {
 
     @Test
     public void CreateTextureManagerShouldLoadAllImages() {
-        var textureManager = new TextureManager();
-        var size = textureManager.countAvailableImages();
+        var size = TextureManager.getInstance().countAvailableImages();
         Assert.assertEquals(27, size);
     }
 
     @Test
     public void LoadResourceShouldBeNotNull() {
-        var textureManager = new TextureManager();
-        var image = textureManager.getImage("logo");
+        var image = TextureManager.getInstance().getImage("logo");
         Assert.assertNotNull(image);
+        Assert.assertEquals(640, (long) image.getWidth());
+        Assert.assertEquals(640, (long) image.getHeight());
     }
 }
