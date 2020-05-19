@@ -1,6 +1,7 @@
 package app.gamestate;
 
 import app.manager.GameStateManager;
+import app.manager.KeyManager;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import org.apache.logging.log4j.LogManager;
@@ -55,5 +56,9 @@ public class IntroState extends GameState {
 
     @Override
     public void handleInput() {
+        if (KeyManager.isPressed(KeyManager.K_ENTER)) {
+            logger.info("User pressed enter. Skipping intro screen.");
+            gameStateManager.setState(GameStateManager.STATE_MENU);
+        }
     }
 }

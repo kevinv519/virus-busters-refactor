@@ -1,6 +1,7 @@
 package app.main;
 
 import app.manager.GameStateManager;
+import app.manager.KeyManager;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -19,6 +20,8 @@ public class GameApp extends Application {
         var scene = new Scene(root);
 
         root.getChildren().add(canvas);
+        scene.setOnKeyPressed(keyEvent -> KeyManager.setKey(keyEvent.getCode(), true));
+        scene.setOnKeyReleased(keyEvent -> KeyManager.setKey(keyEvent.getCode(), false));
 
         primaryStage.setTitle("Hola");
         primaryStage.setResizable(false);
@@ -32,8 +35,9 @@ public class GameApp extends Application {
         new AnimationTimer() {
             @Override
             public void handle(long l) {
-                gameStateManager.draw(graphicsContext);
                 gameStateManager.update();
+                KeyManager.update();
+                gameStateManager.draw(graphicsContext);
             }
         }.start();
 
