@@ -1,5 +1,6 @@
 package app.main;
 
+import app.manager.GameStateManager;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -15,22 +16,24 @@ public class GameApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         var root = new Group();
         var canvas = new Canvas(PANEL_WIDTH, PANEL_HEIGHT);
+        var scene = new Scene(root);
+
         root.getChildren().add(canvas);
 
         primaryStage.setTitle("Hola");
         primaryStage.setResizable(false);
         primaryStage.setWidth(PANEL_WIDTH);
         primaryStage.setHeight(PANEL_HEIGHT);
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(scene);
 
         var graphicsContext = canvas.getGraphicsContext2D();
+        var gameStateManager = new GameStateManager();
 
-        final var startTime = System.nanoTime();
-        new AnimationTimer(){
+        new AnimationTimer() {
             @Override
             public void handle(long l) {
-                var elapsedTime = System.nanoTime() - startTime;
-                System.out.println(elapsedTime);
+                gameStateManager.draw(graphicsContext);
+                gameStateManager.update();
             }
         }.start();
 
