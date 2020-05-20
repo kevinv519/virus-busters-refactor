@@ -2,6 +2,7 @@ package app.main;
 
 import app.manager.GameStateManager;
 import app.manager.KeyManager;
+import app.manager.LanguageManager;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -23,10 +24,8 @@ public class GameApp extends Application {
         scene.setOnKeyPressed(keyEvent -> KeyManager.setKey(keyEvent.getCode(), true));
         scene.setOnKeyReleased(keyEvent -> KeyManager.setKey(keyEvent.getCode(), false));
 
-        primaryStage.setTitle("Hola");
+        primaryStage.setTitle(LanguageManager.getInstance().get("app_name"));
         primaryStage.setResizable(false);
-        primaryStage.setWidth(PANEL_WIDTH);
-        primaryStage.setHeight(PANEL_HEIGHT);
         primaryStage.setScene(scene);
 
         var graphicsContext = canvas.getGraphicsContext2D();

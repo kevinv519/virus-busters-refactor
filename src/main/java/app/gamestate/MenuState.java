@@ -80,6 +80,9 @@ public class MenuState extends GameState {
 
     private void selectOption() {
         switch (currentOption) {
+            case 1:
+                gameStateManager.setState(GameStateManager.STATE_HELP);
+                break;
             case 4:
                 Platform.exit();
                 System.exit(0);
