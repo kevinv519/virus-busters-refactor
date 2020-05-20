@@ -2,14 +2,11 @@ package app.manager;
 
 
 import javafx.scene.input.KeyCode;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
  * @author Kevin
  */
 public class KeyManager {
-    private static final Logger logger = LogManager.getLogger(KeyManager.class);
     private static final int NUM_KEYS = 10;
     private static final boolean[] keyState = new boolean[NUM_KEYS];
     private static final boolean[] previousKeyState = new boolean[NUM_KEYS];
@@ -67,7 +64,6 @@ public class KeyManager {
     }
 
     public static boolean isPressed(int i) {
-        logger.debug("keyState[" + i + "] = " + keyState[i] + "\npreviousKeyState[" + i + "] = " + previousKeyState[i]);
         return keyState[i] && !previousKeyState[i];
     }
     
