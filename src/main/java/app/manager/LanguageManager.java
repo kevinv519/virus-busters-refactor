@@ -15,7 +15,7 @@ public class LanguageManager {
     private ResourceBundle bundle;
     
     private LanguageManager(){
-        var locale = new Locale(SettingsManager.getInstance().getLanguage());
+        var locale = new Locale(SettingsManager.INSTANCE.getLanguage());
         bundle = ResourceBundle.getBundle("locale/strings", locale);
     }
 
@@ -42,7 +42,7 @@ public class LanguageManager {
     }
     
     public void reloadLanguage(){
-        var locale = new Locale(SettingsManager.getInstance().getLanguage());
+        var locale = new Locale(SettingsManager.INSTANCE.getLanguage());
         bundle = ResourceBundle.getBundle("locale/strings", locale);
     }
 }
