@@ -12,13 +12,13 @@ import javafx.scene.text.TextAlignment;
 public class HelpState extends GameState {
 
     private final String[] labelsControls = {
-            LanguageManager.getInstance().get("help_attack"),
-            LanguageManager.getInstance().get("help_run"),
-            LanguageManager.getInstance().get("help_pause"),
-            LanguageManager.getInstance().get("help_move"),
+            LanguageManager.INSTANCE.get("help_attack"),
+            LanguageManager.INSTANCE.get("help_run"),
+            LanguageManager.INSTANCE.get("help_pause"),
+            LanguageManager.INSTANCE.get("help_move"),
     };
-    private final String labelExit = LanguageManager.getInstance().get("help_exit");
-    private final String labelHelp = LanguageManager.getInstance().get("menu_help");
+    private final String labelExit = LanguageManager.INSTANCE.get("help_exit");
+    private final String labelHelp = LanguageManager.INSTANCE.get("menu_help");
 
     private Font pusab40;
     private Font pusab50;

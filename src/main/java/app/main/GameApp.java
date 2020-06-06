@@ -24,7 +24,7 @@ public class GameApp extends Application {
         scene.setOnKeyPressed(keyEvent -> KeyManager.setKey(keyEvent.getCode(), true));
         scene.setOnKeyReleased(keyEvent -> KeyManager.setKey(keyEvent.getCode(), false));
 
-        primaryStage.setTitle(LanguageManager.getInstance().get("app_name"));
+        primaryStage.setTitle(LanguageManager.INSTANCE.get("app_name"));
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
 

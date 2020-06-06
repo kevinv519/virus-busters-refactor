@@ -13,11 +13,11 @@ import javafx.scene.text.TextAlignment;
 public class MenuState extends GameState {
 
     private final String[] labels = {
-            LanguageManager.getInstance().get("menu_start"),
-            LanguageManager.getInstance().get("menu_help"),
-            LanguageManager.getInstance().get("menu_score"),
-            LanguageManager.getInstance().get("menu_settings"),
-            LanguageManager.getInstance().get("menu_exit"),
+            LanguageManager.INSTANCE.get("menu_start"),
+            LanguageManager.INSTANCE.get("menu_help"),
+            LanguageManager.INSTANCE.get("menu_score"),
+            LanguageManager.INSTANCE.get("menu_settings"),
+            LanguageManager.INSTANCE.get("menu_exit"),
     };
 
     private Font pusabFont;
