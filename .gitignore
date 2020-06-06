@@ -74,3 +74,4 @@ out/
 
 # Ignore Gradle build output directory
 build
+.idea/.name
