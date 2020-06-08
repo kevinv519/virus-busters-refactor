@@ -4,5 +4,6 @@ enum class GameStates {
     INTRO,
     MENU,
     PLAY,
-    HELP
+    HELP,
+    SCORE
 }

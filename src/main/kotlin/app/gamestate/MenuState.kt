@@ -77,6 +77,7 @@ class MenuState(gameStateManager: GameStateManager) : GameStateBase(gameStateMan
     private fun selectOption() {
         when (currentOption) {
             1 -> gameStateManager.pushState(GameStates.HELP)
+            2 -> gameStateManager.pushState(GameStates.SCORE)
             4 -> {
                 Platform.exit()
                 exitProcess(0)

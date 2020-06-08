@@ -25,7 +25,7 @@ object ScoreManager {
             file.readLines().take(LIST_SIZE).forEach { line ->
                 val entry = line.split("=")
                 if (entry.size == 2) {
-                    names[i] = entry[0]
+                    names[i] = entry[0].substring(0, min(entry[0].length, 6))
                     scores[i] = entry[1].toInt()
                     i++
                 }
@@ -58,7 +58,7 @@ object ScoreManager {
             } else break
         }
         scores[newScoreIndex] = score
-        names[newScoreIndex] = name.substring(0, min(name.length, 5))
+        names[newScoreIndex] = name.substring(0, min(name.length, 6))
         writeScores()
 
         if (lowerScoreIndex < scores.lastIndex) {

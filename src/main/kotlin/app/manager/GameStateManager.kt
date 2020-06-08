@@ -1,10 +1,7 @@
 package app.manager
 
 import app.enums.GameStates
-import app.gamestate.GameStateBase
-import app.gamestate.HelpState
-import app.gamestate.IntroState
-import app.gamestate.MenuState
+import app.gamestate.*
 import javafx.scene.canvas.GraphicsContext
 import javafx.scene.paint.Color
 
@@ -21,6 +18,7 @@ class GameStateManager {
             GameStates.MENU -> gameStates.add(MenuState(this))
             GameStates.PLAY -> TODO()
             GameStates.HELP -> gameStates.add(HelpState(this))
+            GameStates.SCORE -> gameStates.add(ScoreState(this))
         }
     }
 
