@@ -51,7 +51,7 @@ public class IntroState extends GameStateBase {
 
     @Override
     public void draw(GraphicsContext graphics) {
-        graphics.drawImage(TextureManager.INSTANCE.getImage("log"), 0, 0);
+        graphics.drawImage(TextureManager.INSTANCE.getImage("logo"), 0, 0);
         graphics.setFill(Color.rgb(0, 0, 0, alpha));
         graphics.fillRect(0, 0, 640, 640);
     }
