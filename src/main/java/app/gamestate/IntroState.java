@@ -1,13 +1,15 @@
 package app.gamestate;
 
+import app.enums.GameStates;
 import app.manager.GameStateManager;
 import app.manager.KeyManager;
+import app.manager.TextureManager;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class IntroState extends GameState {
+public class IntroState extends GameStateBase {
     private static final Logger logger = LogManager.getLogger(IntroState.class);
 
     private static final int FADE_IN = 80;
@@ -19,11 +21,11 @@ public class IntroState extends GameState {
 
     public IntroState(GameStateManager gameStateManager) {
         super(gameStateManager);
-        init();
+        initialize();
     }
 
     @Override
-    public void init() {
+    public void initialize() {
         logger.info("Entering IntroState");
         ticks = 0;
     }
@@ -43,13 +45,13 @@ public class IntroState extends GameState {
             }
         }
         if(ticks > FADE_IN + LENGTH + FADE_OUT) {
-            gameStateManager.setState(GameStateManager.STATE_MENU);
+            getGameStateManager().changeState(GameStates.MENU);
         }
     }
 
     @Override
     public void draw(GraphicsContext graphics) {
-        graphics.drawImage(textureManager.getImage("logo"), 0, 0);
+        graphics.drawImage(TextureManager.INSTANCE.getImage("log"), 0, 0);
         graphics.setFill(Color.rgb(0, 0, 0, alpha));
         graphics.fillRect(0, 0, 640, 640);
     }
@@ -58,7 +60,7 @@ public class IntroState extends GameState {
     public void handleInput() {
         if (KeyManager.isPressed(KeyManager.K_ENTER)) {
             logger.info("User pressed enter. Skipping intro screen.");
-            gameStateManager.setState(GameStateManager.STATE_MENU);
+            getGameStateManager().changeState(GameStates.MENU);
         }
     }
 }

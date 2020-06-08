@@ -1,15 +1,12 @@
 package app.gamestate;
 
-import app.manager.GameStateManager;
-import app.manager.KeyManager;
-import app.manager.LanguageManager;
-import app.manager.TextManager;
+import app.manager.*;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 
-public class HelpState extends GameState {
+public class HelpState extends GameStateBase {
 
     private final String[] labelsControls = {
             LanguageManager.INSTANCE.get("help_attack"),
@@ -25,11 +22,11 @@ public class HelpState extends GameState {
 
     public HelpState(GameStateManager gameStateManager) {
         super(gameStateManager);
-        init();
+        initialize();
     }
 
     @Override
-    public void init() {
+    public void initialize() {
         pusab40 = TextManager.loadFont(TextManager.PUSAB, 40);
         pusab50 = TextManager.loadFont(TextManager.PUSAB, 50);
     }
@@ -41,7 +38,7 @@ public class HelpState extends GameState {
 
     @Override
     public void draw(GraphicsContext graphics) {
-        graphics.drawImage(textureManager.getImage("state-help"), 0, 0);
+        graphics.drawImage(TextureManager.INSTANCE.getImage("state-help"), 0, 0);
         graphics.setFill(Color.BLACK);
 
         graphics.setTextAlign(TextAlignment.CENTER);
@@ -59,13 +56,13 @@ public class HelpState extends GameState {
         graphics.setFill(Color.RED);
         graphics.setTextAlign(TextAlignment.CENTER);
         graphics.fillText(labelExit, 320, 545);
-        graphics.drawImage(textureManager.getImage("arrow-right"), 180, 512);
+        graphics.drawImage(TextureManager.INSTANCE.getImage("arrow-right"), 180, 512);
     }
 
     @Override
     public void handleInput() {
         if (KeyManager.isPressed(KeyManager.K_ENTER)) {
-            gameStateManager.setState(GameStateManager.STATE_MENU);
+            getGameStateManager().popState();
         }
     }
 }
